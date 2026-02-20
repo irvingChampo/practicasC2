@@ -1,0 +1,37 @@
+package com.alilopez.kt_demohilt.features.dailychef.data.repositories
+
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringSetPreferencesKey
+import com.alilopez.kt_demohilt.features.dailychef.domain.repositories.FavoritesRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+
+class FavoritesRepositoryImpl @Inject constructor(
+    private val dataStore: DataStore<Preferences>
+) : FavoritesRepository {
+
+    private companion object {
+        val FAVORITES_KEY = stringSetPreferencesKey("favorite_recipes")
+    }
+
+    override fun getFavoriteIds(): Flow<Set<String>> {
+        return dataStore.data.map { preferences ->
+            preferences[FAVORITES_KEY] ?: emptySet()
+        }
+    }
+
+    override suspend fun toggleFavorite(recipeId: String) {
+        dataStore.edit { preferences ->
+            val currentFavorites = preferences[FAVORITES_KEY]?.toMutableSet() ?: mutableSetOf()
+            if (currentFavorites.contains(recipeId)) {
+                currentFavorites.remove(recipeId)
+            } else {
+                currentFavorites.add(recipeId)
+            }
+            preferences[FAVORITES_KEY] = currentFavorites
+        }
+    }
+}
