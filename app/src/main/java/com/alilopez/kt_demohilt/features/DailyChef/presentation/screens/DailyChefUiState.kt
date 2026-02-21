@@ -1,4 +1,4 @@
-package com.alilopez.kt_demohilt.features.DailyChef.presentation.screens
+package com.alilopez.kt_demohilt.features.dailychef.presentation.screens
 
 import com.alilopez.kt_demohilt.features.dailychef.domain.entities.Recipe
 

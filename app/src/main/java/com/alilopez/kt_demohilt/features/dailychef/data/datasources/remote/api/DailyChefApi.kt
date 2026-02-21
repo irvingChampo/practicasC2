@@ -1,6 +1,6 @@
-package com.alilopez.kt_demohilt.core.network
+package com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.api
 
-import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.model.RecipeResponse
+import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.models.RecipeResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

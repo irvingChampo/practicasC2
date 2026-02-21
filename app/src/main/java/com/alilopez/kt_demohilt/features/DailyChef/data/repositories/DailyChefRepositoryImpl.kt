@@ -1,6 +1,6 @@
 package com.alilopez.kt_demohilt.features.dailychef.data.repositories
 
-import com.alilopez.kt_demohilt.core.network.DailyChefApi
+import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.api.DailyChefApi
 import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.mapper.toDomain
 import com.alilopez.kt_demohilt.features.dailychef.domain.entities.Recipe
 import com.alilopez.kt_demohilt.features.dailychef.domain.repositories.DailyChefRepository

@@ -1,4 +1,4 @@
-package com.alilopez.kt_demohilt.features.DailyChef.presentation.components
+package com.alilopez.kt_demohilt.features.dailychef.presentation.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

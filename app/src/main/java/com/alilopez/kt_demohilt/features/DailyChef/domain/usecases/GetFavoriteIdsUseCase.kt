@@ -1,4 +1,4 @@
-package com.alilopez.kt_demohilt.features.dailychef.domain.usecase
+package com.alilopez.kt_demohilt.features.dailychef.domain.usecases
 
 import com.alilopez.kt_demohilt.features.dailychef.domain.repositories.FavoritesRepository
 import kotlinx.coroutines.flow.Flow

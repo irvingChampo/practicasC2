@@ -1,4 +1,4 @@
-package com.alilopez.kt_demohilt.features.DailyChef.presentation.screens
+package com.alilopez.kt_demohilt.features.dailychef.presentation.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.alilopez.kt_demohilt.features.DailyChef.presentation.components.RecipeCard
+import com.alilopez.kt_demohilt.features.dailychef.presentation.components.RecipeCard
 import com.alilopez.kt_demohilt.features.dailychef.presentation.viewmodel.DailyChefViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -24,6 +24,7 @@ fun RecipeListScreen(
     viewModel: DailyChefViewModel,
     onRecipeClick: (String) -> Unit
 ) {
+    // IMPORTANTE: Requiere "import androidx.compose.runtime.getValue" para funcionar
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(
@@ -39,7 +40,6 @@ fun RecipeListScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Selector de categorías
                 val categories = listOf("Seafood", "Chicken", "Beef")
                 categories.forEach { cat ->
                     FilterChip(

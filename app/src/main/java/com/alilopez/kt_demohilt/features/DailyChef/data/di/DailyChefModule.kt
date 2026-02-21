@@ -1,11 +1,11 @@
-package com.alilopez.kt_demohilt.features.dailychef.di
+package com.alilopez.kt_demohilt.features.dailychef.data.di
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.alilopez.kt_demohilt.core.di.MealDbRetrofit
-import com.alilopez.kt_demohilt.core.network.DailyChefApi
+import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.api.DailyChefApi
 import com.alilopez.kt_demohilt.features.dailychef.data.repositories.DailyChefRepositoryImpl
 import com.alilopez.kt_demohilt.features.dailychef.data.repositories.FavoritesRepositoryImpl
 import com.alilopez.kt_demohilt.features.dailychef.domain.repositories.DailyChefRepository
@@ -19,19 +19,23 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-// Extensión para DataStore
-private val Context.dataStore by preferencesDataStore(name = "favorites_prefs")
+// Definición del DataStore
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "favorites_prefs")
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DailyChefDataModule {
+abstract class DailyChefRepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindDailyChefRepository(impl: DailyChefRepositoryImpl): DailyChefRepository
+    abstract fun bindDailyChefRepository(
+        dailyChefRepositoryImpl: DailyChefRepositoryImpl
+    ): DailyChefRepository
 
     @Binds
     @Singleton
-    abstract fun bindFavoritesRepository(impl: FavoritesRepositoryImpl): FavoritesRepository
+    abstract fun bindFavoritesRepository(
+        favoritesRepositoryImpl: FavoritesRepositoryImpl
+    ): FavoritesRepository
 }
 
 @Module

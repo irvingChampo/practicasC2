@@ -1,4 +1,4 @@
-package com.alilopez.kt_demohilt.features.DailyChef.presentation.screens
+package com.alilopez.kt_demohilt.features.dailychef.presentation.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -10,7 +10,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue // IMPORTANTE: Corrige el error del property delegate
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,7 +28,6 @@ fun RecipeDetailScreen(
     viewModel: DailyChefViewModel,
     onBack: () -> Unit
 ) {
-    // Al importar "getValue", este "by" dejará de marcar error
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(recipeId) {
@@ -75,12 +74,9 @@ fun RecipeDetailScreen(
                             Text(recipe.name, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
                             Spacer(modifier = Modifier.height(16.dp))
                             Text("Ingredientes:", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
-
-                            // Iteración de ingredientes
                             recipe.ingredients.forEach { ingredient ->
                                 Text("• $ingredient", style = MaterialTheme.typography.bodyLarge)
                             }
-
                             Spacer(modifier = Modifier.height(16.dp))
                             Text("Instrucciones:", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
                             Text(recipe.instructions, style = MaterialTheme.typography.bodyMedium)

@@ -86,6 +86,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation("androidx.datastore:datastore-preferences:1.1.1") // AGREGA ESTA LÍNEA
 
     implementation(libs.androidx.compose.ui.text.google.fonts)      // G Fonts
     implementation(libs.androidx.lifecycle.viewmodel.compose)       // viewModel()
@@ -94,7 +95,7 @@ dependencies {
     implementation(libs.io.coil.kt.coil.compose)                    // Coil
     implementation(libs.androidx.navigation.compose)                // Navigation
     implementation(libs.androidx.compose.material.icons.extended)   // Icons extendend
-    implementation(libs.hilt.android)                               // Implementación de Hilt
+    implementation(libs.hilt.android) // Implementación de Hilt
     implementation(libs.hilt.navigation.compose)                    // Integración con Jetpack Compose
     ksp(libs.hilt.compiler)                                         // KSP
 
