@@ -3,10 +3,10 @@ package com.alilopez.kt_demohilt.features.dailychef.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alilopez.kt_demohilt.features.dailychef.presentation.screens.DailyChefUiState
-import com.alilopez.kt_demohilt.features.dailychef.domain.usecase.GetFavoriteIdsUseCase
-import com.alilopez.kt_demohilt.features.dailychef.domain.usecase.GetRecipeDetailsUseCase
-import com.alilopez.kt_demohilt.features.dailychef.domain.usecase.GetRecipesByCategoryUseCase
-import com.alilopez.kt_demohilt.features.dailychef.domain.usecase.ToggleFavoriteUseCase
+import com.alilopez.kt_demohilt.features.dailychef.domain.usecases.GetFavoriteIdsUseCase
+import com.alilopez.kt_demohilt.features.dailychef.domain.usecases.GetRecipeDetailsUseCase
+import com.alilopez.kt_demohilt.features.dailychef.domain.usecases.GetRecipesByCategoryUseCase
+import com.alilopez.kt_demohilt.features.dailychef.domain.usecases.ToggleFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,6 +1,6 @@
 package com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.mapper
 
-import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.model.RecipeDto
+import com.alilopez.kt_demohilt.features.dailychef.data.datasources.remote.models.RecipeDto
 import com.alilopez.kt_demohilt.features.dailychef.domain.entities.Recipe
 
 fun RecipeDto.toDomain(): Recipe {
