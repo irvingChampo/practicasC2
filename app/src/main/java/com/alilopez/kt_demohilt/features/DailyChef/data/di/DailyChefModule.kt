@@ -19,12 +19,13 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-// Definición del DataStore
+// Definición del DataStore (Estandarizado)
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "favorites_prefs")
 
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DailyChefRepositoryModule {
+
     @Binds
     @Singleton
     abstract fun bindDailyChefRepository(

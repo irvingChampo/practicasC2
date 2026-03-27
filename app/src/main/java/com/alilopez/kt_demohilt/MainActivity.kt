@@ -18,8 +18,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AppTheme {
+                // El NavController es el estado que recuerda en qué pantalla estamos
                 val navController = rememberNavController()
-                // Ya no pasamos fábricas manuales, Hilt lo resuelve
+                // Inyección del NavGraph global
                 DailyChefNavGraph(navController = navController)
             }
         }

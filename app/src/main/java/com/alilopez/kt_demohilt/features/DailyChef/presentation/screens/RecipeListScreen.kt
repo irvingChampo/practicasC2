@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.ListAlt // Icono para los Posts
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,19 +23,29 @@ import com.alilopez.kt_demohilt.features.dailychef.presentation.viewmodel.DailyC
 @Composable
 fun RecipeListScreen(
     viewModel: DailyChefViewModel,
-    onRecipeClick: (String) -> Unit
+    onRecipeClick: (String) -> Unit,
+    onPostsClick: () -> Unit // <-- Nuevo parámetro para navegar a Posts
 ) {
-    // IMPORTANTE: Requiere "import androidx.compose.runtime.getValue" para funcionar
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Daily Chef", fontWeight = FontWeight.Black) }
+                title = { Text("Daily Chef", fontWeight = FontWeight.Black) },
+                actions = {
+                    // Botón para ir a la otra feature (JSON Placeholder)
+                    IconButton(onClick = onPostsClick) {
+                        Icon(
+                            imageVector = Icons.Default.ListAlt,
+                            contentDescription = "Ver Posts"
+                        )
+                    }
+                }
             )
         }
     ) { padding ->
         Column(modifier = Modifier.fillMaxSize().padding(padding)) {
+            // Fila de Filtros (Chips)
             Row(
                 modifier = Modifier.fillMaxWidth().padding(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),

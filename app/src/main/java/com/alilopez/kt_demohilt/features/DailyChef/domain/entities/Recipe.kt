@@ -1,5 +1,8 @@
 package com.alilopez.kt_demohilt.features.dailychef.domain.entities
 
+/**
+ * Entidad pura de dominio. Estandarizada en minúsculas.
+ */
 data class Recipe(
     val id: String,
     val name: String,
